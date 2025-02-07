@@ -19,15 +19,27 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void setPosition(Vector3 pos)
+    // Setter for position
+    public void SetPosition(Vector3 pos)
     {
-        //swith playerIndex
         transform.position = pos;
     }
 
-    public void setRotation(Quaternion quat)
+    // Getter for position
+    public Vector3 GetPosition()
     {
-        Matrix4x4 mat = Matrix4x4.Rotate(quat);
-        transform.localRotation = quat;
+        return transform.position;
+    }
+
+    // Setter for rotation
+    public void SetRotation(Quaternion rot)
+    {
+        transform.rotation = rot;
+    }
+
+    // Getter for rotation
+    public Quaternion GetRotation()
+    {
+        return transform.rotation;
     }
 }
