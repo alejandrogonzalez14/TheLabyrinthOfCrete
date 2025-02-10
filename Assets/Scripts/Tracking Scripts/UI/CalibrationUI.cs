@@ -25,6 +25,7 @@ public class CalibrationUI : MonoBehaviour
     }
 
     public void SetNumberOfPlayers(string numPlayers) { playerNumber.text = numPlayers; }
+    public void SetNumberOfPlayers(int numPlayers) { playerNumber.text = numPlayers.ToString(); }
 
     public void SetNumberOfBaseStations(string numBaseStations) { baseStationNumber.text = numBaseStations; }
     public void SetNumberOfBaseStations(int numBaseStations) { baseStationNumber.text = numBaseStations.ToString(); }

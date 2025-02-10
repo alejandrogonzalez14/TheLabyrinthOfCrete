@@ -10,6 +10,10 @@ public class TrackingManager : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private CalibrationUI calibrationUI;     // Handles UI interactions
 
+    [Header("Interface")]
+    [SerializeField] private GameObject trackingInterface;
+    private bool isInterfaceActive = false;
+
     // Enable or disable tracking plugin.
     [Header("On / Off")]
     [SerializeField] private bool enableTracking;
@@ -66,6 +70,8 @@ public class TrackingManager : MonoBehaviour
             return;
         }
 
+        trackingInterface.SetActive(isInterfaceActive);
+
         // Start tracking if enabled
         if (enableTracking)
         {
@@ -76,23 +82,23 @@ public class TrackingManager : MonoBehaviour
             int detectedBaseStations = PluginConnector.GetNumberOfBaseStations();
             if (detectedBaseStations == numberOfBaseStations)
             {
-                //calibrationUI.SetNumberOfBaseStations(detectedBaseStations);
+                calibrationUI.SetNumberOfBaseStations(detectedBaseStations);
             }
             else
             {
-                //calibrationUI.SetNumberOfBaseStations("Discrepancy");
+                calibrationUI.SetNumberOfBaseStations("Discrepancy");
             }
             // Set interface text for player number and checks consistency
             int detectedPlayers = PluginConnector.GetNumberOfTrackers();
             if (detectedPlayers == numberOfPlayers)
             {
-                //calibrationUI.playersNumberText.text = detectedPlayers.ToString();
+                calibrationUI.SetNumberOfPlayers(detectedPlayers);
                 playersPosAndRotDatatSize = numberOfPlayers * playerRotDatatSize;
             }
             else
             {
                 Debug.Log("No tracker detcted");
-                //calibrationUI.playersNumberText.text = "Discrepancy";
+                calibrationUI.SetNumberOfPlayers("Discrepancy");
             }
 
             calibration.Initialize();
@@ -141,6 +147,8 @@ public class TrackingManager : MonoBehaviour
         try
         {
             calibration = CalibrationUtils.LoadCalibrationJson(fullCalibrationSaveFilePath);
+
+            UpdateCalibrationUICalibrationData();
 
             calibrated = true;
             calibrationUI.SetCalibrationFileStatus("Loaded Calibration!");
@@ -224,6 +232,13 @@ public class TrackingManager : MonoBehaviour
     /// </summary>
     private void ListenToControls()
     {
+        //shows and hides tracking interface
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInterfaceActive = !isInterfaceActive;
+            trackingInterface.SetActive(isInterfaceActive);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -301,5 +316,16 @@ public class TrackingManager : MonoBehaviour
             if (isTrackingInitialized)
                 PluginConnector.StopTracking();
         }
+    }
+
+    /// <summary>
+    /// Update the calibration center, physicalWorldSize and rotation offset showed in the UI with the calibration values.
+    /// </summary>
+    private void UpdateCalibrationUICalibrationData()
+    {
+
+        calibrationUI.SetCenter(calibration.GetCalibrationCenter());
+        calibrationUI.SetPhysicalWorldSize(calibration.GetCalibrationRealWorldSize());
+        calibrationUI.SetRotationOffset(calibration.GetCalibrationRotation());
     }
 }
