@@ -8,15 +8,15 @@ public static class CalibrationPointsUtils
     /// Tolerance for floating-point comparisons. Determines the allowable margin
     /// of error when checking geometric properties like perpendicularity or parallelism.
     /// </summary>
-    private const float Tolerance = 0.08f;
+    private const float Tolerance = 0.14f;
 
     /// <summary>
     /// Checks the consistency between the points
     /// </summary>
-    //public static bool CheckConsistenceOfCalibrationPoints(Vector3[] points)
-    //{
-    //    return CheckConsistencyOfTheBase(points);
-    //}
+    public static bool CheckConsistenceOfCalibrationPoints(Vector3[] points)
+    {
+        return CheckConsistencyOfTheBase(points);
+    }
 
     public static float GetDistanceFromPointToPlane(Vector3[] points)
     {
@@ -32,23 +32,23 @@ public static class CalibrationPointsUtils
     /// <summary>
     /// Checks if the angle between the vectors formed by the known points and the candidate point is approximately 90 degrees.
     /// </summary>
-    //private static bool CheckConsistencyOfTheBase(Vector3[] points)
-    //{
-    //    // Check the angles formed by three points (for each pair of vectors)
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        Vector3 vec1 = points[i] - points[(i + 1) % 4];
-    //        Vector3 vec2 = points[(i + 2) % 4] - points[(i + 1) % 4];
+    private static bool CheckConsistencyOfTheBase(Vector3[] points)
+    {
+        // Check the angles formed by three points (for each pair of vectors)
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 vec1 = points[i] - points[(i + 1) % 4];
+            Vector3 vec2 = points[(i + 2) % 4] - points[(i + 1) % 4];
 
-    //        // If the angle is close to 90 degrees, return true
-    //        if (!AreVectorsPerpendicular(vec1, vec2))
-    //        {
-    //            return false;
-    //        }
-    //    }
+            // If the angle is close to 90 degrees, return true
+            if (!AreVectorsPerpendicular(vec1, vec2))
+            {
+                return false;
+            }
+        }
 
-    //    return true;
-    //}
+        return true;
+    }
 
     /// <summary>
     /// Computes the UP vector (orthogonal to the ground plane) from a set of four points that form a square.
@@ -94,14 +94,14 @@ public static class CalibrationPointsUtils
     /// <summary>
     /// Calculate and check if the vectors are perpendicular (dot product close to zero)
     /// </summary>
-    //private static bool AreVectorsPerpendicular(Vector3 vec1, Vector3 vec2)
-    //{
-    //    // Calculate the dot product between the two vectors
-    //    float dotProduct = Vector3.Dot(vec1.normalized, vec2.normalized);
+    private static bool AreVectorsPerpendicular(Vector3 vec1, Vector3 vec2)
+    {
+        // Calculate the dot product between the two vectors
+        float dotProduct = Vector3.Dot(vec1.normalized, vec2.normalized);
 
-    //    // Check if the dot product is close to zero, indicating perpendicular vectors (right angle)
-    //    return Mathf.Abs(dotProduct) <= Tolerance;
-    //}
+        // Check if the dot product is close to zero, indicating perpendicular vectors (right angle)
+        return Mathf.Abs(dotProduct) <= Tolerance;
+    }
 
     /// <summary>
     /// Checks the consistency between the points

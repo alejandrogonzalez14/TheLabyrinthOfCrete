@@ -17,7 +17,7 @@ public class CalibrationUI : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> playersPositions;
     [SerializeField] private List<TextMeshProUGUI> playersRotations;
 
-    private void Start()
+    private void Awake()
     {
         center.text = "Uncalibrated";
         physicalWorldSize.text = "Uncalibrated";

@@ -24,8 +24,10 @@ public static class CalibrationUtils
         // Apply scaling to the position
         calibratedPos = ApplyScale(calibratedPos, calibration.GetCalibrationRealWorldSize(), virtualWorldSpace);
 
-        if(!enableYAxis)
+        if (!enableYAxis)
             calibratedPos.y = 0;
+        else if (calibratedPos.y < 0) //Prevents reverse Y axis when there's 180 degree rotation
+            calibratedPos.y = -calibratedPos.y;
 
         return calibratedPos;
     }
@@ -77,7 +79,8 @@ public static class CalibrationUtils
         calibrationData.SetCalibrationRealWorldSize(CalculateRealWorldSize(calibrationPoints, virtualWorldSpace));
 
         //Calculate the CalibrationTransform
-        calibrationData.SetCalibrationRotation(CalculateRotationMatrix(calibrationPoints));
+        Quaternion qRot = CalculateRotationMatrix(calibrationPoints);
+        calibrationData.SetCalibrationRotation(new Quaternion(-qRot.x, -qRot.y, -qRot.z, qRot.w));
 
         //Calculate rotation matrix
 
