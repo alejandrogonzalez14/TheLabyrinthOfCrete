@@ -24,9 +24,9 @@ public class TrackingManager : MonoBehaviour
     [SerializeField] private int numberOfBaseStations;
     [SerializeField] private bool enableRotation;
     [SerializeField] private bool enableYAxis;
-    [SerializeField] private bool swapXZ;
-    [SerializeField] private bool invertX;
-    [SerializeField] private bool invertZ;
+    //[SerializeField] private bool swapXZ;
+    //[SerializeField] private bool invertX;
+    //[SerializeField] private bool invertZ;
     [Tooltip("Provided virtual world space is the size of the plane or surface that is seen as for height, as mush as one meter in the real world should match to")]
     [SerializeField] private Vector3 virtualWorldSpace;
 
@@ -168,7 +168,7 @@ public class TrackingManager : MonoBehaviour
         for (; ; )
         {
             float[] openVrOutputArr = new float[playersPosAndRotDatatSize];
-            PluginConnector.UpdatePositions(openVrOutputArr, invertX, invertZ, swapXZ);
+            PluginConnector.UpdatePositions(openVrOutputArr, false, true, false);
 
             for (int i = 0; i < numberOfPlayers; i++)
             {
