@@ -26,6 +26,9 @@ public class doublescreenCameramanager : MonoBehaviour
         //transform.GetChild(0).transform.localPosition = shiftingCamera1;
         //transform.GetChild(1).transform.localPosition = shiftingCamera2;
 
+        transform.GetChild(0).GetComponent<Camera>().aspect *= 90f / 106f;
+        transform.GetChild(1).GetComponent<Camera>().aspect *= 90f / 106f;
+
         transform.GetChild(0).GetComponent<Camera>().backgroundColor = backgroundColor;
         transform.GetChild(1).GetComponent<Camera>().backgroundColor = backgroundColor;
     }

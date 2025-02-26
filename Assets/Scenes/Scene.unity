@@ -1383,7 +1383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332337755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -0.2}
+  m_LocalPosition: {x: 0, y: 1, z: -0.4}
   m_LocalScale: {x: 12, y: 0, z: 0.59}
   m_Children: []
   m_Father: {fileID: 185534726}
@@ -1600,7 +1600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342261390}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 71, z: 0.6}
+  m_LocalPosition: {x: 0, y: 83, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1975519962}
@@ -2331,9 +2331,6 @@ MonoBehaviour:
   numberOfBaseStations: 4
   enableRotation: 1
   enableYAxis: 1
-  swapXZ: 0
-  invertX: 0
-  invertZ: 1
   virtualWorldSpace: {x: 90, y: 5, z: 90}
   players:
   - {fileID: 1440896347}
@@ -7012,7 +7009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041817075}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 71, z: -0.6}
+  m_LocalPosition: {x: 0, y: 83, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1975519962}
