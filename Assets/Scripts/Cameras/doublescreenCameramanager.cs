@@ -23,8 +23,20 @@ public class doublescreenCameramanager : MonoBehaviour
             }
         }
 
-        //transform.GetChild(0).transform.localPosition = shiftingCamera1;
-        //transform.GetChild(1).transform.localPosition = shiftingCamera2;
+        Camera cam1 = transform.GetChild(0).GetComponent<Camera>();
+        Camera cam2 = transform.GetChild(1).GetComponent<Camera>();
+
+        float originalAspect = 9f / 16f;
+        float targetAspect = 9.11f / 16f;
+
+        float scaleFactor = targetAspect / originalAspect;
+
+        Matrix4x4 projectionMatrix = cam1.projectionMatrix;
+
+        projectionMatrix.m11 *= scaleFactor;
+
+        cam1.projectionMatrix = projectionMatrix;
+        cam2.projectionMatrix = projectionMatrix;
 
         transform.GetChild(0).GetComponent<Camera>().backgroundColor = backgroundColor;
         transform.GetChild(1).GetComponent<Camera>().backgroundColor = backgroundColor;
