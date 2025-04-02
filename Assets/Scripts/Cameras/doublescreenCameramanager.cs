@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class doublescreenCameramanager : MonoBehaviour
@@ -7,8 +8,13 @@ public class doublescreenCameramanager : MonoBehaviour
     //Vector3 shiftingCamera1 = new Vector3(0f, 71, 0.6f);
     //Vector3 shiftingCamera2 = new Vector3(0f, 71, -0.6f);
 
-
+    // float blendDefaultScale = 0.69f;
+    public GameObject plane;
+    public GameObject blend;
     public Color backgroundColor;
+
+    [Range(0, 100)]
+    public float percentageOfCameraOverlap;
     /// <summary>
     /// This script just open the two screens on the same allication
     /// </summary>
@@ -23,23 +29,115 @@ public class doublescreenCameramanager : MonoBehaviour
             }
         }
 
+
         Camera cam1 = transform.GetChild(0).GetComponent<Camera>();
         Camera cam2 = transform.GetChild(1).GetComponent<Camera>();
 
+        correctBlendScale(cam1); //Cam be any of the 2 cameras (both cameras must always be in the same position
+
+        Vector3 lookDirection = cameraLookDirectionVector(cam1);
+        Debug.Log("LookDirection: " + lookDirection);
+        float yourShiftY = GetViewMatrixShiftY(cam1, lookDirection);
+        Debug.Log("ShiftY: " + yourShiftY);
         float originalAspect = 9f / 16f;
-        float targetAspect = 9.11f / 16f;
+        float targetAspect = getTargetAspect(cam1);
+
+        Debug.Log("TargetAspect: " + targetAspect);
 
         float scaleFactor = targetAspect / originalAspect;
+        Debug.Log("scaleFactor: " + scaleFactor);
 
         Matrix4x4 projectionMatrix = cam1.projectionMatrix;
 
-        projectionMatrix.m11 *= scaleFactor;
+        projectionMatrix.m11 /= scaleFactor;
+        projectionMatrix.m12 += yourShiftY;
 
         cam1.projectionMatrix = projectionMatrix;
         cam2.projectionMatrix = projectionMatrix;
 
         transform.GetChild(0).GetComponent<Camera>().backgroundColor = backgroundColor;
         transform.GetChild(1).GetComponent<Camera>().backgroundColor = backgroundColor;
+    }
+
+    private void correctBlendScale(Camera cam)
+    {
+        Vector3 camPos = cam.transform.position;
+        Vector3 blendPos = blend.transform.position;
+        Vector3 planePos = plane.transform.position;
+
+        float cameraBlendRatio = Vector3.Distance(camPos, blendPos) / Vector3.Distance(camPos, planePos);
+
+        float blendScale = (percentageOfCameraOverlap / 10f) * cameraBlendRatio; ;
+
+        Vector3 newScale = blend.transform.localScale;
+        newScale.z = blendScale;
+        blend.transform.localScale = newScale;
+    }
+
+    private float getTargetAspect(Camera cam)
+    {
+        Vector3 planeScale = plane.transform.localScale * 10;
+        Vector3 topCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
+        Vector3 bottomCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
+        Vector3 leftCameraVision = new Vector3(-(planeScale.x / 2), 0f, 0f) + plane.transform.position;
+        Vector3 rightCameraVision = new Vector3(planeScale.x / 2, 0f, 0f) + plane.transform.position;
+
+        float scale = Vector3.Distance(topCameraVision, bottomCameraVision) / Vector3.Distance(leftCameraVision, rightCameraVision);
+
+        return scale;
+    }
+
+    private Vector3 cameraLookDirectionVector(Camera cam)
+    {
+        Vector3 planeScale = plane.transform.localScale * 10;
+        Vector3 topCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
+        Vector3 bottomCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
+
+        //Vector3 directionVectorTop = cameraToPointDirection(cam, topCameraVision);
+        //Vector3 directionVectorBottom = cameraToPointDirection(cam, bottomCameraVision);
+
+        Vector3 middleCameraVision = (topCameraVision + bottomCameraVision) / 2;
+
+        Vector3 lookDirection = cameraToPointDirection(cam, middleCameraVision);
+
+        //Vector3 lookDirection = (directionVectorTop + directionVectorBottom).normalized;
+
+        return lookDirection;
+    }
+
+    private Vector3 cameraToPointDirection(Camera cam, Vector3 posToLook)
+    {
+        Vector3 direction = posToLook - cam.transform.position;
+
+        direction.Normalize();
+
+        return direction;
+    }
+
+    private float GetViewMatrixShiftY(Camera cam, Vector3 lookDirection)
+    {
+        Vector3 pointInWorldSpace = cam.transform.position + lookDirection; 
+
+        Vector3 screenPoint = cam.WorldToScreenPoint(pointInWorldSpace);
+
+        float screenHeight = Screen.height;
+        float normalizedY = (screenPoint.y / screenHeight) * 2 - 1;
+
+
+        //Matrix4x4 projectionMatrix = cam.projectionMatrix;
+
+        //// Step 2: Create a quaternion for the desired rotation (from forward to lookDirection)
+        //Quaternion rotation = Quaternion.FromToRotation(cam.transform.forward, lookDirection);
+
+        //// Step 3: Convert the quaternion to a rotation matrix
+        //Matrix4x4 rotationMatrix = Matrix4x4.Rotate(rotation);
+
+        //// Step 4: Multiply the projection matrix by the rotation matrix
+        //Matrix4x4 modifiedProjectionMatrix = projectionMatrix * rotationMatrix;
+
+        //// Step 5: Access m12 from the modified projection matrix
+        //float m12 = modifiedProjectionMatrix.m12;
+        return normalizedY;
     }
 
 }
