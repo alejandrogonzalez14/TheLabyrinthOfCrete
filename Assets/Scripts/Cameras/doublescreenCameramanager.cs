@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class doublescreenCameramanager : MonoBehaviour
 {
-    //Vector3 shiftingCamera1 = new Vector3(0f, 71, 0.6f);
-    //Vector3 shiftingCamera2 = new Vector3(0f, 71, -0.6f);
 
-    // float blendDefaultScale = 0.69f;
     public GameObject plane;
     public GameObject blend;
     public Color backgroundColor;
@@ -36,16 +33,13 @@ public class doublescreenCameramanager : MonoBehaviour
         correctBlendScale(cam1); //Cam be any of the 2 cameras (both cameras must always be in the same position
 
         Vector3 lookDirection = cameraLookDirectionVector(cam1);
-        Debug.Log("LookDirection: " + lookDirection);
         float yourShiftY = GetViewMatrixShiftY(cam1, lookDirection);
-        Debug.Log("ShiftY: " + yourShiftY);
+     
         float originalAspect = 9f / 16f;
         float targetAspect = getTargetAspect(cam1);
 
-        Debug.Log("TargetAspect: " + targetAspect);
-
         float scaleFactor = targetAspect / originalAspect;
-        Debug.Log("scaleFactor: " + scaleFactor);
+        yourShiftY /= scaleFactor;
 
         Matrix4x4 projectionMatrix = cam1.projectionMatrix;
 
@@ -77,8 +71,8 @@ public class doublescreenCameramanager : MonoBehaviour
     private float getTargetAspect(Camera cam)
     {
         Vector3 planeScale = plane.transform.localScale * 10;
-        Vector3 topCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
-        Vector3 bottomCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
+        Vector3 bottomCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
+        Vector3 topCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
         Vector3 leftCameraVision = new Vector3(-(planeScale.x / 2), 0f, 0f) + plane.transform.position;
         Vector3 rightCameraVision = new Vector3(planeScale.x / 2, 0f, 0f) + plane.transform.position;
 
@@ -90,17 +84,12 @@ public class doublescreenCameramanager : MonoBehaviour
     private Vector3 cameraLookDirectionVector(Camera cam)
     {
         Vector3 planeScale = plane.transform.localScale * 10;
-        Vector3 topCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
-        Vector3 bottomCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
-
-        //Vector3 directionVectorTop = cameraToPointDirection(cam, topCameraVision);
-        //Vector3 directionVectorBottom = cameraToPointDirection(cam, bottomCameraVision);
+        Vector3 bottomCameraVision = new Vector3(0f, 0f, -(planeScale.z / 2)) + plane.transform.position;
+        Vector3 topCameraVision = new Vector3(0f, 0f, (planeScale.z / 2) * (percentageOfCameraOverlap / 100)) + plane.transform.position;
 
         Vector3 middleCameraVision = (topCameraVision + bottomCameraVision) / 2;
 
         Vector3 lookDirection = cameraToPointDirection(cam, middleCameraVision);
-
-        //Vector3 lookDirection = (directionVectorTop + directionVectorBottom).normalized;
 
         return lookDirection;
     }
@@ -116,27 +105,13 @@ public class doublescreenCameramanager : MonoBehaviour
 
     private float GetViewMatrixShiftY(Camera cam, Vector3 lookDirection)
     {
-        Vector3 pointInWorldSpace = cam.transform.position + lookDirection; 
+        Vector3 pointInWorldSpace = cam.transform.position + lookDirection;
 
         Vector3 screenPoint = cam.WorldToScreenPoint(pointInWorldSpace);
 
         float screenHeight = Screen.height;
         float normalizedY = (screenPoint.y / screenHeight) * 2 - 1;
 
-
-        //Matrix4x4 projectionMatrix = cam.projectionMatrix;
-
-        //// Step 2: Create a quaternion for the desired rotation (from forward to lookDirection)
-        //Quaternion rotation = Quaternion.FromToRotation(cam.transform.forward, lookDirection);
-
-        //// Step 3: Convert the quaternion to a rotation matrix
-        //Matrix4x4 rotationMatrix = Matrix4x4.Rotate(rotation);
-
-        //// Step 4: Multiply the projection matrix by the rotation matrix
-        //Matrix4x4 modifiedProjectionMatrix = projectionMatrix * rotationMatrix;
-
-        //// Step 5: Access m12 from the modified projection matrix
-        //float m12 = modifiedProjectionMatrix.m12;
         return normalizedY;
     }
 
