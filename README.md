@@ -10,7 +10,8 @@
 
 This project's source code is licensed under the [MIT License](./LICENSE).
 
-> NOTE: Third-party 3D assets used in this project are licensed separately.  
+> [!NOTE]
+> Third-party 3D assets used in this project are licensed separately.  
 > Please refer to [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for full details and usage terms.
 
 ## Credits
