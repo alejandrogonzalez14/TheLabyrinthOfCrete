@@ -17,6 +17,7 @@ public class ButtonBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && !targetObject.activeSelf)
         {
             targetObject.SetActive(true);
+            SoundManager.Instance.PlayButtonClip();
         }
     }
 }
