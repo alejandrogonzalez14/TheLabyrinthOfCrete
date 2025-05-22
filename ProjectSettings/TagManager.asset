@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BlendPlane0
   - BlendPlane1
+  - Button
+  - Door
+  - Rock
   layers:
   - Default
   - TransparentFX
