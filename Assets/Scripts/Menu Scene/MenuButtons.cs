@@ -22,11 +22,4 @@ public class MenuButtons : MonoBehaviour
         MenuButtons.button_pressed = 3;
         SceneManager.LoadScene("Maze");
     }
-
-    void Update(){
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
 }
