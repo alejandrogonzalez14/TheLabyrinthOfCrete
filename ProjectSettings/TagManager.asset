@@ -8,6 +8,7 @@ TagManager:
   - BlendPlane1
   - Button
   - Door
+  - Rock
   layers:
   - Default
   - TransparentFX
