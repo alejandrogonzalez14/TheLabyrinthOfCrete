@@ -9,6 +9,8 @@ public class ButtonBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && targetObject != null)
         {
             targetObject.SetActive(false);
+            SoundManager.Instance.PlaySound("button");
+            SoundManager.Instance.PlaySound("door");
         }
     }
 
@@ -17,7 +19,6 @@ public class ButtonBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && !targetObject.activeSelf)
         {
             targetObject.SetActive(true);
-            SoundManager.Instance.PlayButtonClip();
         }
     }
 }

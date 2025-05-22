@@ -1,32 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    public AudioClip buttonPressed;
-    private Vector3 button_pos;
 
-    void Awake()
+    [SerializeField]
+    private SoundLibrary sfxLibrary;
+
+    [SerializeField]
+    private AudioSource sfxSource;
+
+    private void Awake()
     {
         Instance = this;
-        button_pos = new Vector3(1, 1, 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaySound(AudioClip clip)
     {
-
-    }
-    
-    private void PlaySound(AudioClip clip)
-    {
-        AudioSource.PlayClipAtPoint(clip, button_pos);
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, Vector3.zero);
+        }
     }
 
-    public void PlayButtonClip()
+    public void PlaySound(string soundName)
     {
-        PlaySound(buttonPressed);
+        sfxSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
     }
 }
