@@ -5,16 +5,16 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 2174045794081892003
-    second: Esqueleto|Idle
+    second: Idle
   - first:
       74: -3270200652525540741
-    second: Esqueleto|Tpose
+    second: T-pose
   - first:
       74: -6571406635930994183
-    second: Esqueleto|Walk/Attack
+    second: Walk&Attack
   - first:
       74: -6630589122427531068
-    second: Esqueleto|WalkLoop
+    second: WalkLoop
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -100,7 +100,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -121,7 +121,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
