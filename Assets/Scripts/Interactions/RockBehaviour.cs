@@ -10,7 +10,8 @@ public class RockBehaviour : MonoBehaviour
             SoundManager.Instance.PlaySound("rock");
 
             // Increment global rock counter
-
+            GameStateManager.collectRock();
+            
             // Destroy itself
             Destroy(gameObject);
         }
