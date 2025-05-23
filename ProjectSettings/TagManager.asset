@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Door
   - Rock
+  - Minotaur
   layers:
   - Default
   - TransparentFX
