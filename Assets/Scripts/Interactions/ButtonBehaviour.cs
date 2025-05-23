@@ -16,7 +16,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && targetObject != null)
+        if (other.tag.Contains("Player") && targetObject != null)
         {
             if (targetCollider != null)
                 targetCollider.enabled = false;
@@ -31,7 +31,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !targetObject.activeSelf)
+        if (other.tag.Contains("Player") && !targetObject.activeSelf)
         {
             targetObject.SetActive(true);
 
