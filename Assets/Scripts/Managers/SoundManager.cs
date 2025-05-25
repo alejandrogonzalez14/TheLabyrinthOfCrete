@@ -27,4 +27,9 @@ public class SoundManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
     }
+
+    public bool isPlaying()
+    {
+        return sfxSource.isPlaying;
+    }
 }

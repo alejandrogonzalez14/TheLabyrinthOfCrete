@@ -242,7 +242,7 @@ public class TrackingManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu Scene");
+            SceneManager.LoadScene("Menu");
         }
     }
 

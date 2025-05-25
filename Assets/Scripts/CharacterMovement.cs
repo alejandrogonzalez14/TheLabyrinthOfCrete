@@ -50,6 +50,11 @@ public class CharacterMovement : MonoBehaviour
             model.rotation = Quaternion.Slerp(currentRotation, targetYRotation, Time.deltaTime * rotationSpeed);
 
             animator.SetBool("walking", true);
+
+            if (!SoundManager.Instance.isPlaying())
+            {
+                SoundManager.Instance.PlaySound("walking");
+            }
         }
         else
         {
