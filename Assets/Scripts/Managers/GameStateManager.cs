@@ -41,4 +41,38 @@ public static class GameStateManager
             timerInstance = timerObject.AddComponent<CountdownTimer>();
         }
     }
+
+    public static float GetCountdownTime()
+    {
+        return timerInstance != null ? timerInstance.GetTimeRemaining() : 0f;
+    }
+
+    public static string GetFormattedCountdownTime()
+    {
+        return timerInstance != null ? timerInstance.GetFormattedTime() : "00:00";
+    }
+
+    public static void ChangeCountdownUIText(TextMeshPro newText)
+    {
+        if (timerInstance != null)
+        {
+            timerInstance.SetUIText(newText);
+        }
+    }
+
+    public static void ResumeCountdown()
+    {
+        if (timerInstance != null)
+        {
+            timerInstance.Resume();
+        }
+    }
+
+    public static void PauseCountdown()
+    {
+        if (timerInstance != null)
+        {
+            timerInstance.Pause();
+        }
+    }
 }

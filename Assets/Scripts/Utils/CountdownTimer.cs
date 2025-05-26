@@ -53,4 +53,33 @@ public class CountdownTimer : MonoBehaviour
             uiText.text = $"{minutes:00}:{seconds:00}";
         }
     }
+
+    public float GetTimeRemaining()
+    {
+        return timeRemaining;
+    }
+
+    public string GetFormattedTime()
+    {
+        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+        return $"{minutes:00}:{seconds:00}";
+    }
+
+    public void SetUIText(TextMeshPro newText)
+    {
+        uiText = newText;
+        UpdateTextDisplay();
+    }
+
+    public void Resume()
+    {
+        isRunning = true;
+    }
+
+    public void Pause()
+    {
+        isRunning = false;
+    }
+
 }
