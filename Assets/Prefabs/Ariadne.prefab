@@ -83,6 +83,7 @@ MonoBehaviour:
   detectionRange: 5
   moveSpeed: 2
   rotationSpeed: 5
+  animSpeed: 1
   model: {fileID: 3181151800372951602}
 --- !u!54 &3147736623228376121
 Rigidbody:

@@ -25,17 +25,9 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (target == null)
-        {
-            rb.velocity = Vector3.zero;
-            animator.SetFloat("moveSpeed", 0.0f);
-            return;
-        }
-
         Vector3 direction = target.position - transform.position;
         direction.y = 0;
         float distance = direction.magnitude;
-
 
         if (distance <= detectionRange && distance > 0.1f)
         {
@@ -60,8 +52,14 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector3.zero; // Stop immediately when out of range
-            animator.SetFloat("moveSpeed", 0.0f);
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            if ((horizontal * horizontal) < 1.0f && (vertical * vertical) < 1.0f)
+            {
+                rb.velocity = Vector3.zero; // Stop immediately when out of range
+                animator.SetFloat("moveSpeed", 0.0f);
+            }
         }
     }
 }

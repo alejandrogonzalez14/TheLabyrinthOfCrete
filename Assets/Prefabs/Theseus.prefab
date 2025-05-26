@@ -50,6 +50,7 @@ MonoBehaviour:
   detectionRange: 5
   moveSpeed: 2
   rotationSpeed: 5
+  animSpeed: 1
   model: {fileID: 4851649013756886767}
 --- !u!54 &4962470289655753977
 Rigidbody:
@@ -378,6 +379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 72a18042b01fb6d4b8642cc18482d1a5, type: 3}
       propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 72a18042b01fb6d4b8642cc18482d1a5, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

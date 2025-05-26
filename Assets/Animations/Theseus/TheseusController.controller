@@ -29,7 +29,7 @@ AnimatorStateMachine:
     m_Position: {x: 64.42627, y: 723.6588, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2109693507736524407}
-    m_Position: {x: 489.81177, y: 688.79114, z: 0}
+    m_Position: {x: 240, y: 680, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1550218546386714661}
     m_Position: {x: 760, y: 660, z: 0}
@@ -139,9 +139,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: StopRunning
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: moveSpeed
-    m_EventTreshold: 0.01
+    m_EventTreshold: 0.05
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4543085433108813293}
   m_Solo: 0
@@ -273,13 +273,13 @@ AnimatorController:
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: moveSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -381,7 +381,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: moveSpeed
-    m_EventTreshold: 0.01
+    m_EventTreshold: 0.05
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4543085433108813293}
   m_Solo: 0
