@@ -8,9 +8,6 @@ public class ZoneTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered with tag:" + other.tag);
-
-
         if (playerType == PlayerType.Player1 && other.CompareTag("Player1"))
         {
             mazeLoader.SetPlayerInZone(1, true);
@@ -23,8 +20,6 @@ public class ZoneTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exited with tag:" + other.tag);
-
         if (playerType == PlayerType.Player1 && other.CompareTag("Player1"))
         {
             mazeLoader.SetPlayerInZone(1, false);

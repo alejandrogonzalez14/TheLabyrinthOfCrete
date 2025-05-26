@@ -34,7 +34,6 @@ public class LoadMaze : MonoBehaviour
             {
                 StopCoroutine(countdownCoroutine);
                 countdownCoroutine = null;
-                Debug.Log("Countdown reset. A player left the zone.");
                 ResetCountdownText();
             }
         }
@@ -46,13 +45,11 @@ public class LoadMaze : MonoBehaviour
 
         while (counter > 0)
         {
-            Debug.Log($"Loading in {counter}...");
             UpdateCountdownText(counter);
             yield return new WaitForSeconds(1f);
 
             if (!isPlayer1InZone || !isPlayer2InZone)
             {
-                Debug.Log("Countdown cancelled.");
                 ResetCountdownText();
                 yield break;
             }
@@ -61,7 +58,6 @@ public class LoadMaze : MonoBehaviour
         }
 
         UpdateCountdownText(0);
-        Debug.Log("Loading next scene...");
         SceneManager.LoadScene(nextSceneName);
     }
 
