@@ -6,11 +6,12 @@ public class CharacterMovement : MonoBehaviour
     public float detectionRange = 5f;
     public float moveSpeed = 5f;
     public float rotationSpeed = 5f;
+    public float animSpeed = 1.0f;
+
+    public Transform model;
+    private Rigidbody rb;
 
     Animator animator;
-    public Transform model;
-
-    private Rigidbody rb;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
         rb.freezeRotation = true; // Optional: prevent rotation due to physics
 
         animator = GetComponentInChildren<Animator>();
+        animator.SetFloat("animSpeed", animSpeed);
     }
 
     void FixedUpdate()
@@ -26,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
         if (target == null)
         {
             rb.velocity = Vector3.zero;
-            animator.SetBool("walking", false);
+            animator.SetFloat("moveSpeed", 0.0f);
             return;
         }
 
@@ -49,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
             // Smoothly rotate around Y only
             model.rotation = Quaternion.Slerp(currentRotation, targetYRotation, Time.deltaTime * rotationSpeed);
 
-            animator.SetBool("walking", true);
+            animator.SetFloat("moveSpeed", moveSpeed);
 
             if (!SoundManager.Instance.isPlaying())
             {
@@ -59,7 +61,7 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero; // Stop immediately when out of range
-            animator.SetBool("walking", false);
+            animator.SetFloat("moveSpeed", 0.0f);
         }
     }
 }
