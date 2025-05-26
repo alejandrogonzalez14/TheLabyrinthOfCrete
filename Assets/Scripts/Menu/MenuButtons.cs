@@ -28,6 +28,6 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator PlayWithDelay()
     {
         yield return new WaitForSeconds(0.5f);  // Wait for 0.5 seconds
-        SceneManager.LoadScene("Maze");     // Load the scene
+        SceneManager.LoadScene("GetReady");     // Load the scene
     }
 }
