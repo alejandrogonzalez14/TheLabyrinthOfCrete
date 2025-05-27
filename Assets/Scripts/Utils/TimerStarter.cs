@@ -10,12 +10,12 @@ public class TimerStarter : MonoBehaviour
         GameStateManager.StartCountdown(timerText);
     }
 
-    void Update()
+/*    void Update()
     {
         // Example: Stop timer when pressing the "S" key
         if (Input.GetKeyDown(KeyCode.S))
         {
             GameStateManager.StopCountdown();
         }
-    }
+    }*/
 }
