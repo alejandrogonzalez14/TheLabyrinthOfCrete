@@ -16,8 +16,8 @@ public class MinotaurMovement : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
     private Transform currentTarget;
-    private float lastAttackTime;
-    private bool isAttacking = false;
+    private float timer;
+    private bool canAttack = true;
 
     void Awake()
     {
@@ -49,14 +49,19 @@ public class MinotaurMovement : MonoBehaviour
 
     void Update()
     {
+        if (timer <= 0f)
+        {
+            timer = attackCooldown;
+            canAttack = true;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+
         if (targets.Count == 0) return;
 
         FindClosestTarget();
-
-        if (isAttacking && !animator.GetCurrentAnimatorStateInfo(0).IsName("Walk&Attack"))
-        {
-            isAttacking = false;
-        }
     }
 
     void FixedUpdate()
@@ -72,15 +77,15 @@ public class MinotaurMovement : MonoBehaviour
         direction.y = 0;
         float distance = direction.magnitude;
 
-        if (distance <= attackRange && Time.time >= lastAttackTime + attackCooldown && !isAttacking)
+        if (distance <= attackRange && canAttack)
         {
             Attack();
-            return;
+            canAttack = false;
+            timer = attackCooldown;
         }
-
-        if (!isAttacking)
+        else 
         {
-            bool shouldWalk = distance > attackRange;
+            bool shouldWalk = distance > attackRange && canAttack;
             animator.SetBool("isWalking", shouldWalk);
 
             if (shouldWalk)
@@ -124,13 +129,8 @@ public class MinotaurMovement : MonoBehaviour
 
     void Attack()
     {
-        isAttacking = true;
-        lastAttackTime = Time.time;
-
         animator.SetTrigger("attackTrigger");
         animator.SetBool("isWalking", false);
-
-        rb.velocity = Vector3.zero;
 
         if (attackTriggerCollider != null)
         {
@@ -140,7 +140,7 @@ public class MinotaurMovement : MonoBehaviour
 
     IEnumerator ActivateAttackZoneTemporarily()
     {
-        yield return new WaitForSeconds(0.5f); // Delay before activating the attack zone
+        yield return new WaitForSeconds(0.75f); // Delay before activating the attack zone
         attackTriggerCollider.enabled = true;
         yield return new WaitForSeconds(attackZoneActiveDuration);
         attackTriggerCollider.enabled = false;
