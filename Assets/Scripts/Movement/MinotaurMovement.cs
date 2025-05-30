@@ -83,9 +83,24 @@ public class MinotaurMovement : MonoBehaviour
             bool shouldWalk = distance > attackRange;
             animator.SetBool("isWalking", shouldWalk);
 
-            rb.velocity = shouldWalk ? direction.normalized * moveSpeed : Vector3.zero;
+            if (shouldWalk)
+            {
+                Vector3 moveDirection = direction.normalized;
+
+                // Rotate towards the move direction smoothly
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+                // Move forward
+                rb.velocity = moveDirection * moveSpeed;
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+            }
         }
     }
+
 
     void FindClosestTarget()
     {
