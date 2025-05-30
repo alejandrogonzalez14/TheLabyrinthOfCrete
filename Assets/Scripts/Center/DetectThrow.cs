@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovCenter : MonoBehaviour
+public class DetectThrow : MonoBehaviour
 {
     private Vector3 lastPosition;
 
@@ -15,27 +15,25 @@ public class PlayerMovCenter : MonoBehaviour
     void Start()
     {
         lastPosition = transform.position;
-        //throwRockScript = GetComponent<ThrowRock>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DetectThrow();
+        CheckThrow();
         lastPosition = transform.position;
     }
 
-    private void DetectThrow()
+    private void CheckThrow()
     {
         Vector3 velocity = (transform.position - lastPosition) / Time.deltaTime;
 
-        if (velocity.magnitude >= threshold)
+        if (velocity.magnitude >= threshold || Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("TIRO PIEDRA");
 
             if (throwRockScript != null)
             {
-                throwRockScript.throwRocks(); 
+                throwRockScript.throwRock();
             }
         }
     }

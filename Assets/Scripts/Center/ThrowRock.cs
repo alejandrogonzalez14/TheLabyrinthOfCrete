@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowRock : MonoBehaviour
@@ -7,41 +5,48 @@ public class ThrowRock : MonoBehaviour
     public GameObject rockPrefab;
     public Transform rockSpawnpoint;
     public float rockSpeed = 10f;
-    public Transform model;
+    public GameObject model;
+
     //public GUI rockCounter;
     public float shootInterval;
     private float shootTimer;
-    
+
+    bool canThrow;
+
+    private void Start()
+    {
+        shootTimer = shootInterval;
+        canThrow = true;
+    }
+
     void Update()
     {
-        UpdateThrowing();
-    }
-
-    private void UpdateThrowing()
-    {
-        shootTimer -= Time.deltaTime;
-
-        if (shootTimer <= 0 && Input.GetKey(KeyCode.Space))
+        if (!canThrow) shootTimer -= Time.deltaTime;
+        
+        if (shootTimer <= 0)
         {
             shootTimer = shootInterval;
-            throwRocks();
+            canThrow = true;
         }
     }
 
-    public void throwRocks()
+    public void throwRock()
     {
-        //if (rockcounter > 0)
-        //{
+
+        if (!canThrow) return;
+
         GameObject rock = Instantiate(rockPrefab, rockSpawnpoint.position, Quaternion.identity);
         MoveRock mover = rock.GetComponent<MoveRock>();
+
         if (mover != null)
         {
-            Vector3 moveDir = model.forward;  // or Vector3.forward depending on your setup
+            Vector3 moveDir = model.transform.forward;  // or Vector3.forward depending on your setup
             mover.moveDirection = moveDir;
             mover.speed = rockSpeed;
+            mover.origin = model;
         }
-        
-        //}
+
+        canThrow = false;
 
     }
 }
