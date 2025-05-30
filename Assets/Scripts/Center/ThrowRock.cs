@@ -33,7 +33,7 @@ public class ThrowRock : MonoBehaviour
     public void throwRock()
     {
 
-        if (!canThrow) return;
+        if (!canThrow || GameStateManager.getRocks() <= 0) return;
 
         GameObject rock = Instantiate(rockPrefab, rockSpawnpoint.position, Quaternion.identity);
         MoveRock mover = rock.GetComponent<MoveRock>();
@@ -46,7 +46,7 @@ public class ThrowRock : MonoBehaviour
             mover.origin = model;
         }
 
+        GameStateManager.throwRock();
         canThrow = false;
-
     }
 }
