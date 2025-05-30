@@ -21,7 +21,7 @@ public class MoveRock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") || other.CompareTag("Minotaur") )
         {
             Destroy(gameObject);
         }
