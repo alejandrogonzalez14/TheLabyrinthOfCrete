@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MinotaurMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class MinotaurMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 5f;
     public float attackCooldown = 2f;
+
+    public BoxCollider attackTriggerCollider; // Assign in Inspector
+    public float attackZoneActiveDuration = 0.5f; // Duration for collider to stay active
 
     private Rigidbody rb;
     private Animator animator;
@@ -33,7 +37,6 @@ public class MinotaurMovement : MonoBehaviour
 
     void Start()
     {
-        // Busca automáticamente jugadores si no hay targets asignados
         if (targets.Count == 0)
         {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -50,7 +53,6 @@ public class MinotaurMovement : MonoBehaviour
 
         FindClosestTarget();
 
-        // Control del ataque
         if (isAttacking && !animator.GetCurrentAnimatorStateInfo(0).IsName("Walk&Attack"))
         {
             isAttacking = false;
@@ -61,7 +63,7 @@ public class MinotaurMovement : MonoBehaviour
     {
         if (currentTarget == null)
         {
-            animator.SetBool("isWalking", false); // Vuelve a Idle
+            animator.SetBool("isWalking", false);
             rb.velocity = Vector3.zero;
             return;
         }
@@ -70,27 +72,18 @@ public class MinotaurMovement : MonoBehaviour
         direction.y = 0;
         float distance = direction.magnitude;
 
-        // Lógica de ataque
         if (distance <= attackRange && Time.time >= lastAttackTime + attackCooldown && !isAttacking)
         {
             Attack();
             return;
         }
 
-        // Lógica de movimiento
         if (!isAttacking)
         {
             bool shouldWalk = distance > attackRange;
-            animator.SetBool("isWalking", shouldWalk); // Controla Idle/Walk
+            animator.SetBool("isWalking", shouldWalk);
 
-            if (shouldWalk)
-            {
-                rb.velocity = direction.normalized * moveSpeed;
-            }
-            else
-            {
-                rb.velocity = Vector3.zero;
-            }
+            rb.velocity = shouldWalk ? direction.normalized * moveSpeed : Vector3.zero;
         }
     }
 
@@ -114,36 +107,27 @@ public class MinotaurMovement : MonoBehaviour
         currentTarget = closestTarget;
     }
 
-    void MoveTowardsTarget(Vector3 direction, float distance)
-    {
-        if (distance > 0.1f)
-        {
-            Vector3 moveDir = direction.normalized;
-            rb.velocity = moveDir * moveSpeed;
-
-            // Rotación
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
-                rotationSpeed * Time.fixedDeltaTime);
-
-            // Animación de caminar
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-            rb.velocity = Vector3.zero;
-        }
-    }
-
     void Attack()
     {
         isAttacking = true;
         lastAttackTime = Time.time;
 
         animator.SetTrigger("attackTrigger");
-        animator.SetBool("isWalking", false); // Asegura que vuelva a Idle después del ataque
+        animator.SetBool("isWalking", false);
 
-        rb.velocity = Vector3.zero; // Detiene el movimiento durante el ataque
+        rb.velocity = Vector3.zero;
+
+        if (attackTriggerCollider != null)
+        {
+            StartCoroutine(ActivateAttackZoneTemporarily());
+        }
+    }
+
+    IEnumerator ActivateAttackZoneTemporarily()
+    {
+        yield return new WaitForSeconds(0.5f); // Delay before activating the attack zone
+        attackTriggerCollider.enabled = true;
+        yield return new WaitForSeconds(attackZoneActiveDuration);
+        attackTriggerCollider.enabled = false;
     }
 }

@@ -16,6 +16,9 @@ public class MoveRock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("Minotaur")) GameStateManager.hurtMinotaur();
+
         // Only destroy this GameObject if the other is NOT the capsuleObject
         if (other.gameObject != origin)
         {
