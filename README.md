@@ -12,12 +12,6 @@ The game is based on the **Greek myth of Theseus and the Minotaur**. According t
 
 > Learn more about the myth: [Theseus and the Minotaur - GreekMythology.com](https://www.greekmythology.com/Myths/Heroes/Theseus/theseus.html)
 
-## Requirements
-
-- Unity 2020.2 or later
-- 2 controllers (or keyboard/gamepad split input)
-- Windows/macOS build support
-
 ## Core Gameplay
 
 - **Co-op Mechanics**: Two players (Theseus and Ariadne) must cooperate to progress, opening doors for each other and collecting rocks.
@@ -26,6 +20,12 @@ The game is based on the **Greek myth of Theseus and the Minotaur**. According t
 - **Combat System**: Defeat the Minotaur by throwing rocks-players must swipe a horizontal tracker at high speed to land a hit.
 - **Shared Lives**: The players have a **shared pool of 3 lives**. If all are lost, the game ends.
 - **Timed Challenge**: Defeat the Minotaur before the timer runs out.
+
+## Requirements
+
+- Unity 2020.2 or later
+- 2 controllers (or keyboard/gamepad split input)
+- Windows/macOS build support
 
 ## Getting started
 
