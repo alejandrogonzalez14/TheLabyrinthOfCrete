@@ -9,20 +9,22 @@ public class PlayerMovCenter : MonoBehaviour
     public bool manual;
 
     private Vector3 lastPosition;
-    //private ThrowRock throwRocks;
+
+    public float threshold = 3f;
+    private ThrowRock throwRockScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
         lastPosition = transform.position;
-        //throwRock = GetComponent<ThrowRock>();
+        throwRockScript = GetComponent<ThrowRock>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //DetectThrow();
+        DetectThrow();
         lastPosition = transform.position;
     }
 
@@ -50,16 +52,16 @@ public class PlayerMovCenter : MonoBehaviour
         return transform.rotation;
     }
 
-    //private void DetectThrow()
-    //{
-        //Vector3 velocity = (transform.position - lastPosition) / Time.deltaTime;
+    private void DetectThrow()
+    {
+        Vector3 velocity = (transform.position - lastPosition) / Time.deltaTime;
 
-        //if (Mathf.Abs(velocity.x) >= throwThreshold)
-        //{
-            //if (throwRock != null) //si el script está added
-            //{
-                //throwRock.Throw(); llama a la función throw
-            //}
-        //}
-    //}
+        if (Mathf.Abs(velocity.x) >= threshold)
+        {
+            if (throwRockScript != null)
+            {
+                throwRockScript.throwRocks(); 
+            }
+        }
+    }
 }

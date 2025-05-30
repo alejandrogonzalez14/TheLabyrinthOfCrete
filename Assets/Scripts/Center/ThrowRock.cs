@@ -6,7 +6,7 @@ public class ThrowRock : MonoBehaviour
 {
     public GameObject rockPrefab;
     public Transform rockSpawnpoint;
-    public float rockSpeed = 5f;
+    public float rockSpeed = 10f;
     public Transform model;
     //public GUI rockCounter;
     public float shootInterval;
@@ -28,7 +28,7 @@ public class ThrowRock : MonoBehaviour
         }
     }
 
-    private void throwRocks()
+    public void throwRocks()
     {
         //if (rockcounter > 0)
         //{
