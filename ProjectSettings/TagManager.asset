@@ -12,6 +12,7 @@ TagManager:
   - Minotaur
   - Player1
   - Player2
+  - Wall
   layers:
   - Default
   - TransparentFX
