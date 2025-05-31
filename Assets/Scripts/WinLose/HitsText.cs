@@ -6,11 +6,10 @@ using UnityEngine;
 public class HitsText : MonoBehaviour
 {
     public TextMeshProUGUI uiText;
-    public int hits = 0;
 
     void Update()
     {
-        uiText.text = hits.ToString("F2") + " hits";
+        uiText.text = GameStateManager.getMinotaurHits().ToString() + " hits";
     }
 
 }
