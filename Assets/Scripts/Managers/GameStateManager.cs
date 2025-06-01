@@ -4,14 +4,17 @@ using TMPro;
 public static class GameStateManager
 {
     private static int rocks_collected = 0;
+    private static int totalRocks = 0;
     private static int lives = 3;
     private static int minotaur_lives = 5;
+    private static int minotaur_hits = 0;
     private static float countdown = 600f;
     private static CountdownTimer timerInstance;
 
     public static void collectRock()
     {
         rocks_collected += 1;
+        totalRocks += 1;
         if (GUIManager.rocksText != null) GUIManager.UpdateRocks();
     }
 
@@ -30,6 +33,7 @@ public static class GameStateManager
     public static void hurtMinotaur()
     {
         minotaur_lives -= 1;
+        minotaur_hits += 1;
         if (GUIManager.minotaurlivesText != null) GUIManager.UpdateMinotaurLives();
 
     }
@@ -64,9 +68,19 @@ public static class GameStateManager
         return rocks_collected;
     }
 
+    public static int getTotalRocks()
+    {
+        return totalRocks;
+    }
+
     public static int getMinotaurLives()
     {
         return minotaur_lives;
+    }
+
+    public static int getMinotaurHits()
+    {
+        return minotaur_hits;
     }
 
     public static void StartCountdown(TextMeshPro countdownText)
