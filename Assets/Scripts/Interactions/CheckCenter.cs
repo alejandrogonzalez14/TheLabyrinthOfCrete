@@ -6,6 +6,17 @@ public class CheckCenter : MonoBehaviour
     private bool player1InZone = false;
     private bool player2InZone = false;
 
+
+    // function to avoid the maze and move to minotaur boss fight (used for debug and for the demo)
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SceneManager.LoadScene("ReadyCenter");
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         // Versión más robusta que compara por objeto o por tag
@@ -39,7 +50,7 @@ public class CheckCenter : MonoBehaviour
     {
         if (player1InZone && player2InZone)
         {
-            SceneManager.LoadScene("Center");
+            SceneManager.LoadScene("ReadyCenter");
         }
     }
 }

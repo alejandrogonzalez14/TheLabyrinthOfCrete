@@ -4,7 +4,7 @@ using System.Collections;
 using TMPro; // 👈 Needed for TextMeshPro support
 
 
-public class LoadMaze : MonoBehaviour
+public class LoadNextScene : MonoBehaviour
 {
     private bool isPlayer1InZone = false;
     private bool isPlayer2InZone = false;

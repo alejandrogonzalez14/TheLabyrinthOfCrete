@@ -1096,11 +1096,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 242997256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259c5dae62528684a8d16e20b97f3101, type: 3}
+  m_Script: {fileID: 11500000, guid: 98bb27141e04cb74197225c8056e93bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 0
-  centerLoader: {fileID: 402022534}
+  sceneLoader: {fileID: 402022536}
 --- !u!136 &242997258
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ Transform:
   m_LocalScale: {x: 9, y: 0.1, z: 9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260707869
 GameObject:
@@ -1264,7 +1264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402022535}
-  - component: {fileID: 402022534}
+  - component: {fileID: 402022536}
   m_Layer: 0
   m_Name: LoadCenter
   m_TagString: Untagged
@@ -1272,21 +1272,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &402022534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402022533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99bea406f441bbb41b5d600abba0bdc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Center
-  countdownTexts:
-  - {fileID: 686695937}
 --- !u!4 &402022535
 Transform:
   m_ObjectHideFlags: 0
@@ -1299,8 +1284,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &402022536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402022533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ecea45c25344c489af69d0750d5ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Center
+  countdownTexts:
+  - {fileID: 686695937}
 --- !u!1 &416285535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +3423,7 @@ GameObject:
   - component: {fileID: 686695938}
   - component: {fileID: 686695937}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3569,7 +3569,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686695936}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5497,95 +5497,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077499170}
   m_CullTransparentMesh: 1
---- !u!1001 &1082386085
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5934611147552543192, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: tracks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543192, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: tracks.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: bc59f459be40fdb4eb0ba870db778ef7, type: 3}
-    - target: {fileID: 5934611147552543192, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: tracks.Array.data[0].trackName
-      value: bg
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.952845
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -50.257675
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.540951
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543193, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543195, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: soundEffects.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543195, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: soundEffects.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 67c8c5ad35bcb4445bb87f8341b21d5d, type: 3}
-    - target: {fileID: 5934611147552543195, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: soundEffects.Array.data[0].name
-      value: walking
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543195, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: soundEffects.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d6c3d4858db9a0a458be43ef77df11fa, type: 3}
-    - target: {fileID: 5934611147552543195, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: soundEffects.Array.data[1].name
-      value: rock
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934611147552543198, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
-      propertyPath: m_Name
-      value: Audio Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4a76d588172b2a349adc8944a7962d0c, type: 3}
 --- !u!1 &1117571279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3283270174284580866, guid: 0812d42cda6ff0c40bfecbb3026dfca0, type: 3}
@@ -6254,7 +6165,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1409054467}
-  - component: {fileID: 1409054466}
   m_Layer: 0
   m_Name: Characters
   m_TagString: Untagged
@@ -6262,18 +6172,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1409054466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409054465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee1fc87c75160a45b0321da1f5a2015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1409054467
 Transform:
   m_ObjectHideFlags: 0
@@ -8108,7 +8006,7 @@ RectTransform:
   - {fileID: 1803328709}
   - {fileID: 6502575}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8124,7 +8022,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007145273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07797618c672284c9665320e98647db, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d6b3d553b5f8954d995ac7f607e9650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 1292473838}
@@ -8441,11 +8339,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2140985135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259c5dae62528684a8d16e20b97f3101, type: 3}
+  m_Script: {fileID: 11500000, guid: 98bb27141e04cb74197225c8056e93bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 1
-  centerLoader: {fileID: 402022534}
+  sceneLoader: {fileID: 402022536}
 --- !u!136 &2140985137
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8521,7 +8419,7 @@ Transform:
   m_LocalScale: {x: 9, y: 0.1, z: 9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147104198
 GameObject:
