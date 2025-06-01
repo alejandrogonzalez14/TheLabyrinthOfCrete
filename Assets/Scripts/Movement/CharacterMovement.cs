@@ -25,6 +25,17 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Check if player dead
+        if (animator.GetBool("isDead")) return;
+
+        // Check if player should die
+        if (false)
+        {
+            animator.SetTrigger("dead");
+            animator.SetBool("isDead", true);
+            return;
+        }
+
         Vector3 direction = target.position - transform.position;
         direction.y = 0;
         float distance = direction.magnitude;
