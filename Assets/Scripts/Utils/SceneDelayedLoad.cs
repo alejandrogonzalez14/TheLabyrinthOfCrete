@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneDelayedLoad : MonoBehaviour
 {
-
     public float delay = 5f;
 
     void Update()
     {
         if (GameStateManager.state != 0)
         {
+            GameStateManager.StopCountdown();
             StartCoroutine(WaitBeforeSceneLoad(delay));
         }
     }

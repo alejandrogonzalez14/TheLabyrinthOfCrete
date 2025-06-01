@@ -1,18 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using TMPro;
 
 public static class GameStateManager
 {
     private static int rocks_collected = 0;
     private static int totalRocks = 0;
+    private static int thrownRocks = 0;
     private static int lives = 3;
     private static int minotaur_lives = 5;
     private static int minotaur_hits = 0;
     private static float countdown = 600f;
     private static CountdownTimer timerInstance;
-    public static int state = 0;                  // 0 is for unfinished, -1 for lost, 1 for won                     
+    public static int state = 0;                  // 0 is for unfinished, -2 for time up, -1 for lost, 1 for won, 
 
     public static void collectRock()
     {
@@ -24,6 +23,7 @@ public static class GameStateManager
     public static void throwRock()
     {
         rocks_collected -= 1;
+        thrownRocks += 1;
         if (GUIManager.rocksText != null) GUIManager.UpdateRocks();
     }
 
@@ -86,6 +86,10 @@ public static class GameStateManager
     {
         return totalRocks;
     }
+    public static int getThrownRocks()
+    {
+        return thrownRocks;
+    }
 
     public static int getMinotaurLives()
     {
@@ -102,7 +106,7 @@ public static class GameStateManager
         EnsureTimerInstanceExists();
         timerInstance.StartTimer(countdown, countdownText, () =>
         {
-            Debug.Log("Countdown finished!");
+            state = -2;
         });
     }
 
