@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MinotaurAttack : MonoBehaviour
 {
@@ -7,6 +8,16 @@ public class MinotaurAttack : MonoBehaviour
         if (other.tag.Contains("Player"))
         {
             GameStateManager.loseLife();
+
+            StartCoroutine(TriggerHurtAnimationAfterDelay(other));
         }
+    }
+
+    IEnumerator TriggerHurtAnimationAfterDelay(Collider playerCollider)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Animator playerAnimator = playerCollider.GetComponent<Animator>();
+        playerAnimator.SetTrigger("hurt");
     }
 }

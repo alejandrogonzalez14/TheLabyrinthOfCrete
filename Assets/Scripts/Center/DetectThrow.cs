@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DetectThrow : MonoBehaviour
 {
@@ -30,11 +27,7 @@ public class DetectThrow : MonoBehaviour
 
         if (velocity.magnitude >= threshold || Input.GetKeyDown(KeyCode.Space))
         {
-
-            if (throwRockScript != null)
-            {
-                throwRockScript.throwRock();
-            }
+            throwRockScript.throwRock();
         }
     }
 }
