@@ -1111,10 +1111,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.599315
-  m_Height: 109.36787
+  m_Radius: 0.5
+  m_Height: 100
   m_Direction: 1
-  m_Center: {x: 0.0048620435, y: 52.09608, z: 0}
+  m_Center: {x: 0, y: 150, z: 0}
 --- !u!23 &242997259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1923,7 +1923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472531375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 71542652}
@@ -6754,7 +6754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694207267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1117808598}
@@ -8354,10 +8354,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.68251544
-  m_Height: 122.85278
+  m_Radius: 0.5
+  m_Height: 100
   m_Direction: 1
-  m_Center: {x: -0.078338414, y: 56.593742, z: 0}
+  m_Center: {x: 0, y: 150, z: 0}
 --- !u!23 &2140985138
 MeshRenderer:
   m_ObjectHideFlags: 0

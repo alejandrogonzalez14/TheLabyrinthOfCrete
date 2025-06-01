@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using TMPro;
 
 public static class GameStateManager
@@ -10,6 +12,7 @@ public static class GameStateManager
     private static int minotaur_hits = 0;
     private static float countdown = 600f;
     private static CountdownTimer timerInstance;
+    public static int state = 0;                  // 0 is for unfinished, -1 for lost, 1 for won                     
 
     public static void collectRock()
     {
@@ -28,6 +31,12 @@ public static class GameStateManager
     {
         lives -= 1;
         if (GUIManager.livesText != null) GUIManager.UpdateLives();
+
+        // check if game over
+        if (lives == 0)
+        {
+            state = -1;
+        }
     }
 
     public static void hurtMinotaur()
@@ -36,6 +45,11 @@ public static class GameStateManager
         minotaur_hits += 1;
         if (GUIManager.minotaurlivesText != null) GUIManager.UpdateMinotaurLives();
 
+        // check if game over
+        if (minotaur_lives == 0)
+        {
+            state = 1;
+        }
     }
 
     public static void setCountdown(float seconds)

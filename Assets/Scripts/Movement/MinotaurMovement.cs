@@ -66,6 +66,9 @@ public class MinotaurMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (GameStateManager.state != 0) return;
+
         if (currentTarget == null)
         {
             animator.SetBool("isWalking", false);

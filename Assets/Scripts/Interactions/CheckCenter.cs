@@ -12,10 +12,10 @@ public class CheckCenter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
+            GameStateManager.StopCountdown();
             SceneManager.LoadScene("ReadyCenter");
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

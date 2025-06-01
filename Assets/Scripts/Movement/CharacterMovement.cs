@@ -29,11 +29,10 @@ public class CharacterMovement : MonoBehaviour
         if (animator.GetBool("isDead")) return;
 
         // Check if player should die
-        if (false)
+        if (GameStateManager.state == -1)
         {
             animator.SetTrigger("dead");
             animator.SetBool("isDead", true);
-            return;
         }
 
         Vector3 direction = target.position - transform.position;
