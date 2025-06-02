@@ -43,7 +43,14 @@ public class ThrowRock : MonoBehaviour
     public bool throwRock()
     {
         if (!canThrow || GameStateManager.getRocks() <= 0)
+        {
             return false;
+        }
+
+        if (!TrackingManager.isTrackingEnabled() && !model.CompareTag(TrackingManager.getPlayerSelected()))
+        {
+            return false;
+        }
 
         StartCoroutine(ThrowRockCoroutine());
         return true;

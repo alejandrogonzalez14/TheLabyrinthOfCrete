@@ -17,7 +17,7 @@ public class TrackingManager : MonoBehaviour
 
     // Enable or disable tracking plugin.
     [Header("On / Off")]
-    [SerializeField] private bool enableTracking;
+    [SerializeField] private static bool enableTracking;
 
     // Options for configuration
     [Header("Tracking Configuration")]
@@ -51,7 +51,7 @@ public class TrackingManager : MonoBehaviour
 
     // Attributes for non-tracking input
     [Header("Non-tracking")]
-    [SerializeField] private int playerSelected = 1;
+    [SerializeField] private static int playerSelected = 1;
     [SerializeField] private int trackingDisabledPlayerSpeed = 5;
 
     private int playerRotDatatSize = 7;
@@ -329,5 +329,15 @@ public class TrackingManager : MonoBehaviour
         calibrationUI.SetCenter(calibration.GetCalibrationCenter());
         calibrationUI.SetPhysicalWorldSize(calibration.GetCalibrationRealWorldSize());
         calibrationUI.SetRotationOffset(calibration.GetCalibrationRotation());
+    }
+
+    public static string getPlayerSelected()
+    {
+        return "Player" + playerSelected;
+    }
+
+    public static bool isTrackingEnabled()
+    {
+        return enableTracking;
     }
 }
