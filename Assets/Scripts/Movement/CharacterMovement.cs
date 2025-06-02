@@ -26,13 +26,18 @@ public class CharacterMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Check if player dead
-        if (animator.GetBool("isDead")) return;
+        if (animator.GetBool("isDead"))
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
 
         // Check if player should die
         if (GameStateManager.state == -1)
         {
             animator.SetTrigger("dead");
             animator.SetBool("isDead", true);
+            rb.velocity = Vector3.zero;
             return;
         }
 
