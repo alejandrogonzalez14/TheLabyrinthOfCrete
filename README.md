@@ -1,59 +1,101 @@
-# The Labyrinth of Crete
+# 🌀 The Labyrinth of Crete
 
 An **interactive cooperative maze game** built in Unity, where two players step into the mythic roles of **Theseus** and **Ariadne**. Collaborate, solve puzzles, and face the legendary **Minotaur** in the heart of the labyrinth.
 
-## Overview
+---
 
-This project was developed as part of the *Interactive Systems* subject. It combines **team-based gameplay**, **puzzle-solving mechanics**, and an **action-based boss fight** in a mythological setting. Players must rely on communication and coordination to survive the maze and defeat the monster.
+## 🧭 Overview
 
-## The Myth Behind the Game
+Developed for the *Interactive Systems* course, this project combines **team-based gameplay**, **puzzle-solving mechanics**, and an **action-oriented boss battle** in a mythological setting. Players must rely on communication and coordination to survive the maze and defeat the Minotaur.
 
-The game is inspired by the Greek myth of **Theseus and the Minotaur**, a classic tale of heroism and cunning. According to legend, the Minotaur, a fearsome creature, half-man and half-bull, was imprisoned at the centre of a vast labyrinth built by Daedalus for King Minos of Crete. To end the suffering of his people, the Athenian prince Theseus volunteers to enter the labyrinth and kill the beast.
+---
 
-Before entering, Theseus receives help from Ariadne, the king’s daughter, who gives him a ball of thread to trace his path. Thanks to her guidance, Theseus is able to navigate the maze, slay the Minotaur, and escape, becoming a legendary hero.
+## 🏛️ The Myth Behind the Game
 
-Our game brings this myth to life as a cooperative journey where Theseus and Ariadne must work together to overcome challenges, find their way through the labyrinth, and defeat the Minotaur in a final confrontation.
+The game draws inspiration from the famous Greek legend of **Theseus and the Minotaur**. In this myth, King Minos of Crete commands the architect **Daedalus** to build a vast labyrinth to imprison the **Minotaur**, a fearsome creature with the body of a man and the head of a bull.
 
-> Learn more about the myth: [Theseus and the Minotaur - GreekMythology.com](https://www.greekmythology.com/Myths/Heroes/Theseus/theseus.html)
+As punishment for past conflicts, Athens is forced to send seven young men and seven young women into the labyrinth every nine years as a sacrifice to the beast. Determined to end this cycle, **Theseus**, prince of Athens, volunteers to enter the maze and kill the Minotaur.
 
-## Core Gameplay
+Before he enters, he is aided by **Ariadne**, daughter of King Minos, who gives him a **ball of thread** so he can retrace his steps. With her help, Theseus navigates the maze, slays the Minotaur, and escapes—emerging as a hero.
 
-- **Co-op Mechanics**: Two players (Theseus and Ariadne) must cooperate to progress, opening doors for each other and collecting rocks.
-- **Maze Navigation**: Inspired by the Labyrinth of Crete, the maze requires exploration, coordination, and timing.
-- **Boss Battle**: After reaching the centre, players enter a new scene where they face the **Minotaur**.
-- **Combat System**: Defeat the Minotaur by throwing rocks; players must swipe a horizontal tracker at high speed to land a hit.
-- **Shared Lives**: The players have a **shared pool of lives**; depending on the difficulty, the number of hearts changes. In easy mode, they have **7**, in medium mode have **5** and in hard mode, they have **3** lives. If all are lost, the game ends.
-- **Timed Challenge**: Defeat the Minotaur before the timer runs out.
+> 🔗 Learn more: [Theseus & the Minotaur – Greek Mythology]([https://www.theoi.com/Heros/Theseus.html](https://www.greekmyths-greekmythology.com/myth-of-theseus-and-minotaur/))
 
-## How to play
-The game is primarily designed for use in an interactive tracking room equipped with multiple motion trackers. Players control their characters by physically moving around with their trackers; the corresponding in-game character will follow their position in real time. The system ensures that characters cannot walk through walls, and if a player moves too far from their character, the movement will be restricted to preserve tracking coherence. In the final scene, located at the centre of the maze, players must defeat the Minotaur by swinging their tracker horizontally at high speed to throw rocks as an attack.
+---
 
-For users playing on a regular computer, the game is also fully functional with keyboard controls. Movement is handled using the WASD keys, though only one character can be controlled at a time. Players can switch control between Theseus and Ariadne by pressing the 1 or 2 keys, respectively. During the final boss fight, rocks can be thrown at the Minotaur by pressing the spacebar.
+## 🎮 Core Gameplay
 
-Keep in mind that rocks are limited, so players must plan their actions carefully to succeed. Strategic collaboration and efficient use of resources are essential to defeat the Minotaur before time runs out.
+- **Co-op Mechanics**: Two players (Theseus and Ariadne) must collaborate, opening paths and collecting rocks.
+- **Maze Navigation**: Navigate a complex labyrinth that requires timing, exploration, and teamwork.
+- **Boss Fight**: Confront the **Minotaur** in a climactic battle at the center of the maze.
+- **Combat System**: Players attack by throwing rocks—swing the tracker (or press spacebar) to land a hit.
+- **Shared Lives**: Players share a life pool:
+  - Easy: 7 hearts
+  - Medium: 5 hearts
+  - Hard: 3 hearts
+- **Timed Challenge**: Defeat the Minotaur before time runs out.
 
-> [!NOTE]
-> If played on a computer, we recommend starting with the easy mode because the minotaur is quite hard to kill,
-> since it is difficult to aim the rocks where you wish. 
+---
 
-## Requirements
+## 🕹️ How to Play
 
-- Unity 2020.2 or later
-- 2 controllers (or keyboard/gamepad split input)
-- Windows/macOS build support
+### With Motion Tracking (FuBIntLab)
+- Designed for use in a **motion tracking room**.
+- Players physically move around the space; their in-game characters mirror their motion.
+- Swing the tracker **horizontally at high speed** to throw rocks in the final boss fight.
 
-## License
+### On a Computer (No Tracking)
+- Fully playable with keyboard:
+  - **WASD** – Move character.
+  - **1 / 2** – Switch control between Theseus and Ariadne.
+  - **Spacebar** – Throw rocks during the boss fight.
+- Rocks are limited—use them strategically.
+- For first-time players, **Easy Mode** is recommended due to challenging aiming mechanics.
+
+---
+
+## 💾 Installation & Setup
+
+To install and run *The Labyrinth of Crete*, follow the steps below based on your intended setup:
+
+### 1️⃣ Download the Game
+
+- Visit the [**Releases**](https://github.com/alejandrogonzalez14/TheLabyrinthOfCrete/releases) page.
+- Download the `.zip` file corresponding to your setup:
+  - **With Tracking** – For use in the **FuBIntLab** (motion-tracking enabled).
+  - **Without Tracking** – For use on a **standard computer** (keyboard input).
+
+### 2️⃣ Extract the Files
+
+- Unzip the downloaded `.zip` file to a location of your choice.
+- Keep all files in the extracted folder to avoid missing dependencies.
+
+### 3️⃣ Launch the Game
+
+- Run the game by **double-clicking** the `LabyrinthOfCrete.exe` file.
+- If your OS shows a warning (e.g., Windows Defender), click **"Run Anyway"**.
+
+---
+
+## 📦 Requirements
+
+- Unity 2020.2 or later (for development)
+- 2 controllers or keyboard/gamepad setup
+- Windows or macOS build support
+
+---
+
+## 🪪 License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-This project's source code is licensed under the [MIT License](./LICENSE).
+This project is licensed under the [MIT License](./LICENSE).
 
-> [!NOTE]
-> Third-party 3D assets used in this project are licensed separately.  
-> Please refer to [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for full details and usage terms.
+> **Note**: Third-party assets used in this project are licensed separately.  
+> See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for full credits and terms.
 
-## Installation & Setup
+---
 
-## Credits
-This project includes third-party 3D assets.
-See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for full credits and licensing information.
+## 🙌 Credits
+
+This project uses third-party 3D assets.  
+Please refer to [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for full acknowledgments and licensing details.
