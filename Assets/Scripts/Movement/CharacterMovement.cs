@@ -33,6 +33,7 @@ public class CharacterMovement : MonoBehaviour
         {
             animator.SetTrigger("dead");
             animator.SetBool("isDead", true);
+            return;
         }
 
         Vector3 direction = target.position - transform.position;

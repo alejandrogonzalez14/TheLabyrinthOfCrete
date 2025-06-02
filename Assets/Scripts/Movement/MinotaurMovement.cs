@@ -145,6 +145,7 @@ public class MinotaurMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f); // Delay before activating the attack zone
         attackTriggerCollider.enabled = true;
+        SoundManager.Instance.PlaySound("swordAttack");
         yield return new WaitForSeconds(attackZoneActiveDuration);
         attackTriggerCollider.enabled = false;
     }

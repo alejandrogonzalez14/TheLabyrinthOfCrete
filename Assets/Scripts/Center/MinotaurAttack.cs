@@ -19,5 +19,6 @@ public class MinotaurAttack : MonoBehaviour
 
         Animator playerAnimator = playerCollider.GetComponent<Animator>();
         playerAnimator.SetTrigger("hurt");
+        SoundManager.Instance.PlaySound("characterHurt");
     }
 }

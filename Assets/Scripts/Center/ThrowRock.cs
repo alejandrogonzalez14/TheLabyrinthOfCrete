@@ -56,6 +56,7 @@ public class ThrowRock : MonoBehaviour
         canThrow = false;
 
         yield return new WaitForSeconds(2f); // Wait for animation or timing
+        SoundManager.Instance.PlaySound("throwRock");
 
         GameObject rock = Instantiate(rockPrefab, rockSpawnpoint.position, Quaternion.identity);
         MoveRock mover = rock.GetComponent<MoveRock>();
