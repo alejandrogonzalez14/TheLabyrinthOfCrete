@@ -242,6 +242,7 @@ public class TrackingManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GameStateManager.Reset();
             SceneManager.LoadScene("Menu");
         }
     }
