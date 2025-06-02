@@ -17,7 +17,7 @@ public class TrackingManager : MonoBehaviour
 
     // Enable or disable tracking plugin.
     [Header("On / Off")]
-    [SerializeField] private static bool enableTracking;
+    [SerializeField] private bool enableTracking;
 
     // Options for configuration
     [Header("Tracking Configuration")]
@@ -58,6 +58,8 @@ public class TrackingManager : MonoBehaviour
     private float positionUpdateInterval = 0.01f;
     private bool isTrackingInitialized;
 
+    private static bool dummyEnabledTracking = false;
+
     /// <summary>
     /// Initialize the system.
     /// </summary>
@@ -76,6 +78,8 @@ public class TrackingManager : MonoBehaviour
         // Start tracking if enabled
         if (enableTracking)
         {
+            dummyEnabledTracking = true;
+
             PluginConnector.StartTracking(numberOfPlayers, numberOfBaseStations);
             isTrackingInitialized = true;
 
@@ -338,6 +342,6 @@ public class TrackingManager : MonoBehaviour
 
     public static bool isTrackingEnabled()
     {
-        return enableTracking;
+        return dummyEnabledTracking;
     }
 }
