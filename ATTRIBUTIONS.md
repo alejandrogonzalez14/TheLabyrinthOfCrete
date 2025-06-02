@@ -33,13 +33,81 @@ This project includes third-party 3D assets. Each is credited below according to
 
 ---
 
-Falta poner los assets de piedras y etc.
+### 4. Stones
+- **Author**: [ZAKMAN](https://assetstore.unity.com/publishers/56064)
+- **Source**: [View on AssetStore](https://assetstore.unity.com/packages/3d/environments/landscapes/rock-pack-210536)
+- **License**: [Standard Unity Asset Store EULA](https://unity.com/es/legal/as-terms)
+- **Notes**: Asset cannot be redistributed separately and is used under the terms of the Unity Asset Store license.
 
 > All 3D assets remain the property of their respective authors and are used in this project under the terms of their original licenses.
 
+## Materials
+
+### 1. Concrete floor
+- **Author**: [Undoing Planets](https://assetstore.unity.com/publishers/82476)
+- **Source**: [View on AssetStore](https://assetstore.unity.com/packages/2d/textures-materials/concrete/5-concrete-materials-1-255940#content)
+- **License**: [Standard Unity Asset Store EULA](https://unity.com/es/legal/as-terms)
+- **Notes**: Usage is limited to this project and subject to the Asset Store license terms.
+
+---
+
+### 2. Metal doors and buttons
+- **Author**: [Adam Bielecki](https://assetstore.unity.com/publishers/1103)
+- **Source**: [View on AssetStore](https://assetstore.unity.com/packages/2d/textures-materials/pbr-materials-wood-metal-50290#content)
+- **License**: [Standard Unity Asset Store EULA](https://unity.com/es/legal/as-terms)
+- **Notes**: Asset may not be extracted or redistributed beyond this project scope.
+
 ## Sounds
 
-TBD.
+This project includes freely licensed sound effects from [Freesound.org](https://freesound.org). Each sound is credited below in accordance with its Creative Commons license.
+
+### 1. Characters Hurt  
+- **Author**: [qubodup](https://freesound.org/people/qubodup/)  
+- **Source**: [View on Freesound](https://freesound.org/people/qubodup/sounds/193400/)  
+- **License**: [Creative Commons Attribution 3.0 (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)  
+- **Notes**: Attribution required.
+
+---
+
+### 2. Characters Fight (Rock Throw - Woosh)  
+- **Author**: [Artninja](https://freesound.org/people/Artninja/)  
+- **Source**: [View on Freesound](https://freesound.org/people/Artninja/sounds/761967/)  
+- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Attribution required.
+
+---
+
+### 3. Minotaur Hurt  
+- **Author**: [TobiasKosmos](https://freesound.org/people/TobiasKosmos/)  
+- **Source**: [View on Freesound](https://freesound.org/people/TobiasKosmos/sounds/163279/)  
+- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Attribution required.
+
+---
+
+### 4. Maze Doors  
+- **Author**: [190316](https://freesound.org/people/190316/)  
+- **Source**: [View on Freesound](https://freesound.org/people/190316/sounds/542946/)  
+- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Attribution required.
+
+---
+
+### 5. Maze Buttons  
+- **Author**: [kyles](https://freesound.org/people/kyles/)  
+- **Source**: [View on Freesound](https://freesound.org/people/kyles/sounds/453739/)  
+- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Attribution required.
+
+---
+
+### 6. Maze Rocks (Pickup Sound)  
+- **Author**: [221055](https://freesound.org/people/221055/)  
+- **Source**: [View on Freesound](https://freesound.org/people/221055/sounds/654822/)  
+- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Attribution required.
+
+> All audio content is used under the terms of their respective Creative Commons licenses and remains the property of the original authors.
 
 ## Animations
 
