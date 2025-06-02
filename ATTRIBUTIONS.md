@@ -62,50 +62,88 @@ This project includes third-party 3D assets. Each is credited below according to
 This project includes freely licensed sound effects from [Freesound.org](https://freesound.org). Each sound is credited below in accordance with its Creative Commons license.
 
 ### 1. Characters Hurt  
-- **Author**: [qubodup](https://freesound.org/people/qubodup/)  
-- **Source**: [View on Freesound](https://freesound.org/people/qubodup/sounds/193400/)  
-- **License**: [Creative Commons Attribution 3.0 (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)  
-- **Notes**: Attribution required.
+- **Author**: [FullStackSound](https://freesound.org/people/FullStackSound/)  
+- **Source**: [View on Freesound](https://freesound.org/people/FullStackSound/sounds/662465/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Sound effect for player hurt reactions.
 
 ---
 
 ### 2. Characters Fight (Rock Throw - Woosh)  
 - **Author**: [Artninja](https://freesound.org/people/Artninja/)  
 - **Source**: [View on Freesound](https://freesound.org/people/Artninja/sounds/761967/)  
-- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
-- **Notes**: Attribution required.
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Used when a player throws a rock.
 
 ---
 
 ### 3. Minotaur Hurt  
-- **Author**: [TobiasKosmos](https://freesound.org/people/TobiasKosmos/)  
-- **Source**: [View on Freesound](https://freesound.org/people/TobiasKosmos/sounds/163279/)  
-- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
-- **Notes**: Attribution required.
+- **Author**: [Geekilee](https://freesound.org/people/Geekilee/)  
+- **Source**: [View on Freesound](https://freesound.org/people/Geekilee/sounds/690708/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Minotaur damage sound.
 
 ---
 
 ### 4. Maze Doors  
 - **Author**: [190316](https://freesound.org/people/190316/)  
 - **Source**: [View on Freesound](https://freesound.org/people/190316/sounds/542946/)  
-- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
-- **Notes**: Attribution required.
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Used for opening gates in the maze.
 
 ---
 
 ### 5. Maze Buttons  
 - **Author**: [kyles](https://freesound.org/people/kyles/)  
 - **Source**: [View on Freesound](https://freesound.org/people/kyles/sounds/453739/)  
-- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
-- **Notes**: Attribution required.
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Triggered when buttons are pressed inside the maze.
 
 ---
 
 ### 6. Maze Rocks (Pickup Sound)  
 - **Author**: [221055](https://freesound.org/people/221055/)  
 - **Source**: [View on Freesound](https://freesound.org/people/221055/sounds/654822/)  
-- **License**: [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
-- **Notes**: Attribution required.
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Plays when collecting rocks.
+
+---
+
+### 7. Character Death  
+- **Author**: [rockittt](https://freesound.org/people/rockittt/)  
+- **Source**: [View on Freesound](https://freesound.org/people/rockittt/sounds/442288/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Plays when Theseus dies.
+
+---
+
+- **Author**: [Yudena](https://freesound.org/people/Yudena/)  
+- **Source**: [View on Freesound](https://freesound.org/people/Yudena/sounds/377560/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Plays when Ariadne dies.
+
+---
+
+### 8. Minotaur Death  
+- **Author**: [JarredGibb](https://freesound.org/people/JarredGibb/)  
+- **Source**: [View on Freesound](https://freesound.org/people/JarredGibb/sounds/233279/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Final death scream for the Minotaur.
+
+---
+
+### 9. Game Outcome
+- **Author**: [FunWithSound](https://freesound.org/people/FunWithSound/)  
+- **Source**: [View on Freesound](https://freesound.org/people/FunWithSound/sounds/456966/)  
+- **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)  
+- **Notes**: Plays when the players defeat the Minotaur.
+
+---
+
+- **Author**: [floraphonic](https://pixabay.com/es/users/floraphonic-38928062/)  
+- **Source**: [View on Pixabay](https://pixabay.com/es/sound-effects/brass-fail-8-a-207130/)  
+- **License**: [Pixabay Content License](https://pixabay.com/service/license/)  
+- **Notes**: Played when the players lose. Free to use with no attribution required.
 
 > All audio content is used under the terms of their respective Creative Commons licenses and remains the property of the original authors.
 
