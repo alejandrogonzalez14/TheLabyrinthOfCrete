@@ -48,6 +48,7 @@ public class ExitButtonTrigger : MonoBehaviour
             if (timer >= selectionTime)
             {
                 hasActivated = true;
+                GameStateManager.Reset();
                 StartCoroutine(LoadMenuAfterDelay(0.5f));
             }
         }
@@ -56,6 +57,13 @@ public class ExitButtonTrigger : MonoBehaviour
     private IEnumerator LoadMenuAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("Center");
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Exit()
+    {
+        hasActivated = true;
+        GameStateManager.Reset();
+        StartCoroutine(LoadMenuAfterDelay(0.5f));
     }
 }

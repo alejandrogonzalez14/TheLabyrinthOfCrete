@@ -158,4 +158,25 @@ public static class GameStateManager
             timerInstance.Pause();
         }
     }
+
+    public static void Reset()
+    {
+        // Reset gameplay state
+        rocks_collected = 0;
+        totalRocks = 0;
+        thrownRocks = 0;
+        lives = 3;
+        minotaur_lives = 5;
+        minotaur_hits = 0;
+        countdown = 600f; // Reset to initial 10 minutes or default value
+        state = 0;
+
+        // Reset or stop the countdown timer
+        if (timerInstance != null)
+        {
+            timerInstance.StopTimer();
+            GameObject.Destroy(timerInstance.gameObject);
+            timerInstance = null;
+        }
+    }
 }
