@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -27,6 +28,18 @@ public class SoundManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
     }
+
+    public void PlaySoundWithDelay(string soundName, float delay)
+    {
+        StartCoroutine(PlaySoundDelayedCoroutine(soundName, delay));
+    }
+
+    private IEnumerator PlaySoundDelayedCoroutine(string soundName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        sfxSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
+    }
+
 
     public bool isPlaying()
     {

@@ -18,6 +18,7 @@ public class MinotaurMovement : MonoBehaviour
     private Transform currentTarget;
     private float timer;
     private bool canAttack = true;
+    private bool hasDied = false;
 
     void Awake()
     {
@@ -66,8 +67,23 @@ public class MinotaurMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameStateManager.state != 0)
+        {
+            rb.velocity = Vector3.zero;
 
-        if (GameStateManager.state != 0) return;
+            if (GameStateManager.state == 1)
+            {
+                // Only trigger once
+                if (!hasDied)
+                {
+                    hasDied = true;
+                    SoundManager.Instance.PlaySound("minotaurDead");
+                    Destroy(gameObject, 0.5f);
+                }
+            }
+
+            return;
+        }
 
         if (currentTarget == null)
         {
@@ -86,7 +102,7 @@ public class MinotaurMovement : MonoBehaviour
             canAttack = false;
             timer = attackCooldown;
         }
-        else 
+        else
         {
             bool shouldWalk = distance > attackRange && canAttack;
             animator.SetBool("isWalking", shouldWalk);

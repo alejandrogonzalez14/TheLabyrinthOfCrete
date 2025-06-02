@@ -37,6 +37,8 @@ public class CharacterMovement : MonoBehaviour
         {
             animator.SetTrigger("dead");
             animator.SetBool("isDead", true);
+            SoundManager.Instance.PlaySound("theseusDead");
+            SoundManager.Instance.PlaySound("ariadneDead");
             rb.velocity = Vector3.zero;
             return;
         }

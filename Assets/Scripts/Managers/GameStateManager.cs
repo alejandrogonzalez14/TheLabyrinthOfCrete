@@ -36,6 +36,8 @@ public static class GameStateManager
         if (lives == 0)
         {
             state = -1;
+            MusicManager.Instance.StopMusic();
+            SoundManager.Instance.PlaySoundWithDelay("defeat", 5f);
         }
     }
 
@@ -49,6 +51,8 @@ public static class GameStateManager
         if (minotaur_lives == 0)
         {
             state = 1;
+            MusicManager.Instance.StopMusic();
+            SoundManager.Instance.PlaySoundWithDelay("victory", 5f);
         }
     }
 
