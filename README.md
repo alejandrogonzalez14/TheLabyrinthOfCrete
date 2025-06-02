@@ -22,7 +22,7 @@ Our game brings this myth to life as a cooperative journey where Theseus and Ari
 - **Maze Navigation**: Inspired by the Labyrinth of Crete, the maze requires exploration, coordination, and timing.
 - **Boss Battle**: After reaching the centre, players enter a new scene where they face the **Minotaur**.
 - **Combat System**: Defeat the Minotaur by throwing rocks; players must swipe a horizontal tracker at high speed to land a hit.
-- **Shared Lives**: The players have a **shared pool of 3 lives**. If all are lost, the game ends.
+- **Shared Lives**: The players have a **shared pool of lives**; depending on the difficulty, the number of hearts changes. In easy mode, they have **7**, in medium mode have **5** and in hard mode, they have **3** lives. If all are lost, the game ends.
 - **Timed Challenge**: Defeat the Minotaur before the timer runs out.
 
 ## How to play
@@ -31,6 +31,10 @@ The game is primarily designed for use in an interactive tracking room equipped 
 For users playing on a regular computer, the game is also fully functional with keyboard controls. Movement is handled using the WASD keys, though only one character can be controlled at a time. Players can switch control between Theseus and Ariadne by pressing the 1 or 2 keys, respectively. During the final boss fight, rocks can be thrown at the Minotaur by pressing the spacebar.
 
 Keep in mind that rocks are limited, so players must plan their actions carefully to succeed. Strategic collaboration and efficient use of resources are essential to defeat the Minotaur before time runs out.
+
+> [!NOTE]
+> If played on a computer, we recommend starting with the easy mode because the minotaur is quite hard to kill,
+> since it is difficult to aim the rocks where you wish. 
 
 ## Requirements
 
