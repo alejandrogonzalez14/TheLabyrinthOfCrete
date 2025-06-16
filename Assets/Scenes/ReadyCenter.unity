@@ -644,7 +644,9 @@ MonoBehaviour:
   plane: {fileID: 478357208}
   blend: {fileID: 260707869}
   backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  UseOverlapFile: 1
   percentageOfCameraOverlap: 15
+  overlapGetFilePath: D:/Calibration/Overlap
 --- !u!4 &149632148
 Transform:
   m_ObjectHideFlags: 0
@@ -1490,7 +1492,6 @@ MonoBehaviour:
   - {fileID: 71542651}
   - {fileID: 1117808597}
   calibrationSaveFilePath: D:\Calibration\Eje Z
-  playerSelected: 1
   trackingDisabledPlayerSpeed: 5
 --- !u!1 &432131415
 GameObject:
